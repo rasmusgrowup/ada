@@ -1,4 +1,4 @@
-package example.com;
+package example.com.misc;
 
 public class Opgave7 {
     public static int[] power(int Z) {

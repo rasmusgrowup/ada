@@ -1,4 +1,4 @@
-package example.com;
+package example.com.recursion;
 
 public class Opgave10 {
     public static int logTo(int N) {

@@ -1,4 +1,4 @@
-package example.com;
+package example.com.misc;
 
 public class Opgave4 {
     public static int[] findClosestPowerOfTwo(int[] arr) {

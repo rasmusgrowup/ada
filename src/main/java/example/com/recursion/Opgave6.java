@@ -1,4 +1,4 @@
-package example.com;
+package example.com.recursion;
 
 public class Opgave6 {
     public static int sumDivisibleBy3(int N) {

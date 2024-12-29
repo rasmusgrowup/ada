@@ -1,4 +1,4 @@
-package example.com;
+package example.com.recursion;
 
 public class Opgave1 {
     public static double sumofsquared(int n)

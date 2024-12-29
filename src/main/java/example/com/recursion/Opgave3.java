@@ -1,4 +1,4 @@
-package example.com;
+package example.com.recursion;
 
 public class Opgave3 {
     public static boolean additive(String s)

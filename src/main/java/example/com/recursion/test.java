@@ -1,4 +1,4 @@
-package example.com;
+package example.com.recursion;
 
 public class test {
     public static int myMethod(int N) {
