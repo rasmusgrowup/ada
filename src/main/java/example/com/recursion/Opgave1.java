@@ -1,5 +1,10 @@
 package example.com.recursion;
 
+/*
+Rekursiv algoritme.
+Finder summen af de ulige tals kvadrater fra 1 til N.
+*/
+
 public class Opgave1 {
     public static double sumofsquared(int n)
     {
@@ -11,7 +16,7 @@ public class Opgave1 {
         // Stop de rekursive tal, når n <= 0
         if (n <= 0) {
             return 0;
-        } else {
+        } else { // kald den rekursive metode
             double sum = (Math.pow(n, 2) + sumofsquared(n - 2));
             System.out.println("Calculated " + n + "^2 = " + sum);
             return sum;
