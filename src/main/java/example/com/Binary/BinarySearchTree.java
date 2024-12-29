@@ -255,6 +255,20 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
         }
     }
 
+    // Public method to calculate the internal path length
+    public int internalPathLength() {
+        return calculateIPL(root, 0); // Start with depth 0
+    }
+
+    // Helper method to calculate IPL recursively
+    private int calculateIPL(Node current, int depth) {
+        if (current == null) {
+            return 0; // No contribution from an empty subtree
+        }
+        // Current node's depth + IPL of left subtree + IPL of right subtree
+        return depth + calculateIPL(current.left, depth + 1) + calculateIPL(current.right, depth + 1);
+    }
+
     // Test program
     public static void main( String [ ] args )
     {
@@ -307,8 +321,12 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
 
         // Count the number of twigs that satisfy the constraints
         int twigCount = tree.countTwigs(constraints);
+        int height = tree.height();
+        int pathLength = tree.internalPathLength();
 
         // Print the result
         System.out.println("Number of twigs: " + twigCount);
+        System.out.println("Height of tree: " + height);
+        System.out.println("Internal path length: " + pathLength);
     }
 }
