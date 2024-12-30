@@ -1,6 +1,6 @@
 package example.com.recursion;
 
-public class Opgave6 {
+public class SumDivisibleBy3 {
     public static int sumDivisibleBy3(int N) {
         // stop rekursion hvis N <= 0
         if (N <= 0) {

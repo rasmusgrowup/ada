@@ -3,7 +3,7 @@ package example.com.misc;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PatternFinder {
+public class WordPatternFinder {
     /**
      * Method to find a pattern in the text based on the rules described.
      *

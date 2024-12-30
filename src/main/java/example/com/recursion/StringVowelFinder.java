@@ -1,6 +1,6 @@
 package example.com.recursion;
 
-public class VocalFinder {
+public class StringVowelFinder {
     public static boolean erVokal(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y';
     }

@@ -1,6 +1,6 @@
 package example.com.recursion;
 
-public class Opgave10 {
+public class LogToN {
     public static int logTo(int N) {
         // Hvis N == 1, stop rekursion
         if (N <= 1) {

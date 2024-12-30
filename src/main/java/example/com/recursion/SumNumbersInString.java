@@ -1,6 +1,6 @@
 package example.com.recursion;
 
-public class Opgave3 {
+public class SumNumbersInString {
     public static boolean additive(String s)
     {
         // tjek om der er nok numre i strengen

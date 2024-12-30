@@ -1,6 +1,6 @@
 package example.com.recursion;
 
-public class EksamensOpgave22023 {
+public class SecondHighestNumber {
     public static int highestNumber;
     public static int secondHighestNumber;
 

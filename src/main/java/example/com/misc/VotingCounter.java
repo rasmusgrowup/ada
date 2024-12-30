@@ -3,7 +3,7 @@ package example.com.misc;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Opgave11 {
+public class VotingCounter {
     public static int candidateSearch(int[] arr) {
         // Definér antallet af stemmer, der skal til for at vinde afstemningen
         int votesToWin = arr.length / 2 + 1;

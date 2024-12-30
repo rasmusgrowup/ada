@@ -1,6 +1,6 @@
 package example.com.misc;
 
-public class Opgave4 {
+public class FindClosestPowerOfTwo {
     public static int[] findClosestPowerOfTwo(int[] arr) {
         int[] bestResult = new int[4];
         int closestDifference = Integer.MAX_VALUE;

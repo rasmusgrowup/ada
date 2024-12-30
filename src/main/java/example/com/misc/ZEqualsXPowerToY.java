@@ -1,6 +1,6 @@
 package example.com.misc;
 
-public class Opgave7 {
+public class ZEqualsXPowerToY {
     public static int[] power(int Z) {
         // Pseudokode //
         // Hvis Z > 100.000, print en fejl
