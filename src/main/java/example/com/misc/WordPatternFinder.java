@@ -121,4 +121,3 @@ public class WordPatternFinder {
         System.out.println(findPattern(text, word));
     }
 }
-
