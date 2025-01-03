@@ -118,6 +118,23 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
         return 1 + Math.max(height(current.left), height(current.right));
     }
 
+    // Calculate the depth from root
+    public int depth() {
+        return depth(root, 0); // Start fra roden med dybde 0
+    }
+
+    // Recursive helper-method for calculation the depth
+    private int depth(Node current, int currentDepth) {
+        if (current == null) {
+            return currentDepth; // Returnér dybden, når vi når en tom node
+        }
+        // Beregn dybden for venstre og højre subtræ og vælg den maksimale
+        return Math.max(
+                depth(current.left, currentDepth + 1),
+                depth(current.right, currentDepth + 1)
+        );
+    }
+
     // Print the tree in sorted order (in-order traversal)
     public void printTree() {
         printTree(root);
@@ -369,14 +386,19 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
         constraints.add(childHasNoSiblings);
         constraints.add(childHasExactlyOneChildThatIsLeaf);
 
-        // Count the number of twigs that satisfy the constraints
+        // Count the number of twigs that satisfy the constraint
         int twigCount = tree.countTwigs(constraints);
         int height = tree.height();
+        int depth = tree.depth();
+        int min = tree.findMin();
+        int max = tree.findMax();
         int pathLength = tree.internalPathLength();
 
         // Print the result
         System.out.println("Number of twigs: " + twigCount);
         System.out.println("Height of tree: " + height);
+        System.out.println("Depth of tree: " + depth);
+        System.out.println("Min/Max of tree: " + min + "/" + max);
         System.out.println("Internal path length: " + pathLength);
     }
 }
