@@ -90,6 +90,16 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
     }
 
     /**
+     * Find the largest item in the priority queue.
+     * @return the largest item, or throw an UnderflowException if empty.
+     */
+    public AnyType findMax() {
+        if (isEmpty())
+            throw new RuntimeException("UnderflowException");
+        return array[1]; // Root contains the maximum element in a max-heap
+    }
+
+    /**
      * Remove the smallest item from the priority queue.
      * @return the smallest item, or throw an UnderflowException if empty.
      */
@@ -102,6 +112,21 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
         percolateDown( 1 );
 
         return minItem;
+    }
+
+    /**
+     * Remove the largest item from the priority queue.
+     * @return the largest item, or throw an UnderflowException if empty.
+     */
+    public AnyType deleteMax() {
+        if (isEmpty())
+            throw new RuntimeException("UnderflowException");
+
+        AnyType maxItem = findMax(); // Retrieve the maximum element (root)
+        array[1] = array[currentSize--]; // Replace root with the last element
+        percolateDown(1); // Restore the heap order property from the root down
+
+        return maxItem; // Return the removed maximum element
     }
 
     /**
@@ -133,12 +158,16 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
 
     private static final int DEFAULT_CAPACITY = 10;
 
+    public int getCurrentSize() {
+        return currentSize;
+    }
+
     private int currentSize;      // Number of elements in heap
     private AnyType [ ] array; // The heap array
 
     /**
      * Internal method to percolate down in the heap.
-     * @param hole the index at which the percolate begins.
+     * @param hole the index at which percolate begins.
      */
     private void percolateDown( int hole )
     {
@@ -159,10 +188,22 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
         array[ hole ] = tmp;
     }
 
+    /**
+     * Internal method to percolate up in the heap.
+     * @param hole the index at which percolate begins.
+     */
+    private void percolateUp(int hole) {
+        AnyType tmp = array[hole]; // Save the inserted element
+        // Traverse upwards as long as the parent's value is greater
+        for (; hole > 1 && tmp.compareTo(array[hole / 2]) < 0; hole /= 2) {
+            array[hole] = array[hole / 2]; // Move parent down
+        }
+        array[hole] = tmp; // Place the element in its correct position
+    }
 
-    // Test program
     public static void main( String [ ] args )
     {
+        /*
         int numItems = 10000;
         BinaryHeap<Integer> h = new BinaryHeap<>( );
         int i = 37;
@@ -172,6 +213,26 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>>
         for( i = 1; i < numItems; i++ )
             if( h.deleteMin( ) != i )
                 System.out.println( "Oops! " + i );
+
+         */
+
+        // Initialize an empty BinaryHeap
+        BinaryHeap<Integer> heap = new BinaryHeap<>(10);
+
+        // Manually populate the array
+        heap.insert(10); // Root
+        heap.insert(20); // Left child
+        heap.insert(30); // Right child
+        heap.insert(40); // Left child of node 2
+        heap.insert(50); // Right child of node 2
+        //heap.currentSize = 5; // Set current size to the number of elements
+
+        // Call buildHeap to enforce heap property
+        heap.buildHeap();
+
+        // Test percolateUp
+        heap.insert(25);
+        heap.buildHeap();
     }
 }
 
